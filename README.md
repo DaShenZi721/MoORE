@@ -6,14 +6,14 @@
 </div>
 
 <div align="center">
-  <img src="assets/moore_svheme.png" width="1100"/>
+  <img src="assets/moore_scheme.png" width="1100"/>
 </div>
 
 ## Introduction
 
 This repository includes the official implementation of [MoORE](https://arxiv.org/abs/2506.14436). 
-We propose a simple yet effective adapter-based orthogonal fine-tuning method, HRA.
-Given a pre-trained model, our method fine-tunes its layers by multiplying each frozen weight matrix with an orthogonal matrix constructed by a chain of learnable Householder reflections (HRs).
+We propose a simple yet effective multi-task adaptation method, called Mixture of Orthogonal Rank-one Experts (MoORE).
+
 
 ## Environment Setup
 
@@ -24,7 +24,11 @@ we utilize [meta-llama/Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/
 
 ## Training and Evaluation
 
-
+You can train and evaluate on the CSR-MTL dataset by running the code below.  
+```bash
+bash train.sh
+```
+If you want to run experiments on the NLU-MTL dataset, you need to replace the "task_name" field in [moe_peft_moore.json](moe_peft_moore.json) with "glue:cola;glue:mnli;glue:mrpc;glue:qnli;glue:qqp;glue:rte;glue:sst2".
 
 ## Acknowledgement
 
