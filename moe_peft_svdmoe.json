@@ -1,0 +1,42 @@
+{
+    "cutoff_len": 512,
+    "save_step": null,
+    "train_lora_candidate_num": 2,
+    "train_lora_simultaneously_num": 2,
+    "train_strategy": "optim",
+    "lora": [
+        {
+            "name": "moore_0",
+            "task_name": "arc-c;arc-e;boolq;obqa;piqa;siqa;hellaswag;winogrande;csqa",
+            "optim": "adamw",
+            "scheduler_type": "warmup_stable_decay",
+            "warmup_ratio": 0.05,
+            "lr": 0.0003,
+            "batch_size": 16,
+            "micro_batch_size": 8,
+            "evaluate_batch_size": 16,
+            "num_epochs": 2,
+            "shared_expert_r": 0,
+            "r": 8,
+            "lora_alpha": 16,
+            "lora_dropout": 0.05,
+            "target_modules": {
+                "q_proj": true,
+                "k_proj": true,
+                "v_proj": true,
+                "o_proj": true,
+                "gate_proj": true,
+                "down_proj": true,
+                "up_proj": true
+            },
+            "routing_strategy": "moore",
+            "output_router_logits": false,
+            "task_embedding_dim": 64,
+            "num_experts": 128,
+            "top_k": 2,
+            "group_by_length": false,
+            "evaluate_steps": 1000,
+            "evaluate_start_steps": 0
+        }
+    ]
+}
